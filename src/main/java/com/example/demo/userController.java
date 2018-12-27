@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.service.UserService;
-
+//for test
 @Controller
 public class userController {
 
