@@ -45,6 +45,18 @@ public class MemberController {
 		}
 		return "user";
 	}
+	
+	@GetMapping("/errorPage")
+	public String errorPage(@ModelAttribute("message") String msg) throws Exception{
+
+		if(true) 
+			{
+			System.out.println("errorPage return");
+			 throw new Exception("我是eerror message");
+			
+			}
+		return "user";
+	}
 
 	@GetMapping("/login")
 	public String login(@ModelAttribute User user) {
