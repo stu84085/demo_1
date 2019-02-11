@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.dao.UserRepository;
 import com.example.domain.User;
@@ -34,6 +35,14 @@ public class MemberController {
 	@Autowired
 	DataSource dataSource;
 
+	@GetMapping("/scroll")
+	public String scroll() {
+		RestTemplate restTemplate = new RestTemplate();//call restful service
+        String text =restTemplate.getForObject("https://api.github.com/search/users?q=tom", String.class);//放入驗證網址回傳結果
+        System.out.println("text = "+text);
+		return "scroll";
+	}
+	
 	@GetMapping("/memberPage")
 	public String memberPage() {
 
